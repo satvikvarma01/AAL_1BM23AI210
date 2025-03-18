@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main() {
+    char s[100];
+    char p[100];
+    int i, j;
+    int found = 0;
+
+    printf("Enter the string: ");
+    scanf("%s", s);  
+    printf("Enter the pattern to search: ");
+    scanf("%s", p);
+
+    int lengths = strlen(s);
+    int lengthp = strlen(p);
+
+    for (i = 0; i <= (lengths - lengthp); i++) { 
+        j = 0; 
+
+        while (j < lengthp && p[j] == s[i + j]) {  
+            j++;
+        }
+
+        if (j == lengthp) { 
+            found = 1;
+            printf("Pattern found at index %d\n", i);
+            break; 
+        }
+    }
+
+    if (found==0) {
+        printf("Pattern not found.\n");
+    }
+
+    return 0;
+}
+output:
+Enter the string: nobody_notice_him
+Enter the pattern to search: him
+Pattern found at index 14
+
+
+=== Code Execution Successful ===
